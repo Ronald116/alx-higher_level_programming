@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def complex_delete(a_dictionary, value):
     # Create a copy of the original dictionary
     updated_dictionary = a_dictionary.copy[:]

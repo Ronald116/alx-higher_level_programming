@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-
 def lookup(obj):
     """
-    Returns a list of attributes and methods of
-    an onject
+    Returns the list of available attributes and methods of an object
     """
-    return [attr for attr in dir(obj) if not attr.startswith('__')]
+
+    return dir(obj)

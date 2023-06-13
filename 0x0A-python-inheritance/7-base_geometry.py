@@ -7,12 +7,6 @@ defines class BaseGeometry
 class BaseGeometry:
     """ A class Geometry"""
 
-    def __init__(self, name, value):
-        """initializes baseGeometry
-        """
-
-    self.name = name
-    self.value = value
 
     def area(self):
         """

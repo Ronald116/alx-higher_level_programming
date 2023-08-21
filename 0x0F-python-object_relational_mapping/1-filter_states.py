@@ -8,8 +8,8 @@ from sys import argv
 if __name__ == "__main__":
     """Connect to database"""
     db_con = MySQLdb.connect(host='localhost', user=argv[1],
-                            port=3306, passwd=argv[2], db=argv[3])
-    
+            port=3306, passwd=argv[2], db=argv[3])
+
     cur = db_con.cursor()
     cur.execute("SELECT * FROM states WHERE name like 'N%' \
                 ORDER BY states.id ASC")

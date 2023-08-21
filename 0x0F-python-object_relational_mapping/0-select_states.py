@@ -1,35 +1,23 @@
 #!/usr/bin/python3
-"""
-This script lists all states from the database `hbtn_0e_0_usa`.
-
-This script connects to a MySQL database and retrieves a list of all states
-from the 'states' table in the 'hbtn_0e_0_usa' database. It requires the
-following command-line arguments: username, password, and database name.
-
-Usage:
-    ./script.py <username> <password> <database_name>
-"""
-
+""" Script that lists all states from the database hbtn_0e_0_usa """
 import MySQLdb
 from sys import argv
 
+# The code should not be executed when imported
 if __name__ == '__main__':
-    """
-    Connect to the database and retrieve the states.
 
-    This function connects to the MySQL database using the provided
-    credentials and retrieves all the rows from the 'states' table. It then
-    prints each row to the console.
-    """
-    db_connect = MySQLdb.connect(
-        host="localhost", user=argv[1], port=3306, passwd=argv[2], db=argv[3])
+    # make a connection to the database
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3])
 
-    db_cursor = db_connect.cursor()
+    # It gives us the ability to have multiple seperate working environments
+    # through the same connection to the database.
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states")
 
-    db_cursor.execute("SELECT * FROM states")
-
-    rows_selected = db_cursor.fetchall()
-
-    for row in rows_selected:
-        print(row)
-
+    rows = cur.fetchall()
+    for i in rows:
+        print(i)
+    # Clean up process
+    cur.close()
+    db.close()

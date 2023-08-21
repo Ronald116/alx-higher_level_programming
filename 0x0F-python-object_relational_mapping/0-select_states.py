@@ -13,8 +13,8 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    """Connect to database"""
-    
+    """Connect to database and access all states"""
+
     db_conn = MySQLdb.connect(host='localhost', user=argv[1],
                             port=3306, passwd=argv[2], db=argv[3])
     
@@ -23,7 +23,5 @@ if __name__ == "__main__":
     states_selected = cur.fetchall()
     for state in states_selected:
         print(state)
-cur.close()
-db_conn.close()
 
 

@@ -8,10 +8,6 @@ from the database `hbtn_0e_0_usa`.
 import MySQLdb as db
 from sys import argv
 
-"""
-Access to the database and get the states
-from the database.
-"""
 
 if __name__ == '__main__':
     """
